@@ -30,4 +30,17 @@ Solution
 就像洛克人打贏每關boss會獲得武器晶片(Receiver)一樣，可以動態的增加，而不需要還要拿晶片回萊德博士那重新寫入到洛克人身上。
 可以直接就加進來，然後在Controller(Invoker)設定要呼叫要哪個武器(Command)，再execute開啟武器或關閉武器。
 
+Interpreter
+--------------------------
+Implementing an expression interface which tells to interpret a particular context.
+
+- 把一句有特殊規則的語句，透過解譯器將它真正的意思表現出來
+- context: 待解譯的語句
+- Abstract Expression: 所有規則都要實作的介面
+- Terminal Expression: 無法再展開的規則，最小單位規則
+- Nonterminal Expression: 可以再展開的規則，可展開成NonterminalExpression和TerminalExpression的組合
+- 每個語法規則都說計相對應的類別，方便實踐語法以便容易改變或擴充語法
+- 缺點是語法規則變多變複雜時，類別也會變多(可用剖析器和編譯器替代)
+
+
 
