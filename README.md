@@ -43,4 +43,20 @@ Implementing an expression interface which tells to interpret a particular conte
 - 缺點是語法規則變多變複雜時，類別也會變多(可用剖析器和編譯器替代)
 
 
+### Creational
+物件實體化
+
+Singleton
+--------------------------
+- 只能有一個唯一實體的物件，例如負責處理使用者登入的物件
+- Initialize your class instance single time only with static property and it will share your class instance golbally.
+- Swift example: UserDefaults.standard, FileManager.default
+- lazy var
+- 缺點: If using more singleton patter inside your project, it's hard to manage the lifecyle of your singleton  class.
+- 在多執行緒下執行可能有同時創建的狀況
+- solution1: 同步化shared，但會降低程式執行效率
+- solution2: 不用lazy var的方式，先建立好
+- solution3: 雙重檢查上鎖，檢查instance是否已經建立，沒建立才進行同步化
+
+
 
