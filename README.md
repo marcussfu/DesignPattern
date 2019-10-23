@@ -42,6 +42,11 @@ Implementing an expression interface which tells to interpret a particular conte
 - 每個語法規則都說計相對應的類別，方便實踐語法以便容易改變或擴充語法
 - 缺點是語法規則變多變複雜時，類別也會變多(可用剖析器和編譯器替代)
 
+Strategy
+--------------------------
+用可互換的(Interchangeable)介面來替換某個實體中的方法，可以經由替換不同的策略使物件擁有不同的行為。
+在實現Strategy模式時，目標是定義一個無需修改或繼承的環境類。
+
 
 ### Creational
 物件實體化
@@ -49,7 +54,7 @@ Implementing an expression interface which tells to interpret a particular conte
 Singleton
 --------------------------
 - 只能有一個唯一實體的物件，例如負責處理使用者登入的物件
-- Initialize your class instance single time only with static property and it will share your class instance golbally.
+- Initialize your class instance single time only with static property and it will share your class instance globally.
 - Swift example: UserDefaults.standard, FileManager.default
 - lazy var
 - 缺點: If using more singleton patter inside your project, it's hard to manage the lifecyle of your singleton  class.
@@ -57,6 +62,10 @@ Singleton
 - solution1: 同步化shared，但會降低程式執行效率
 - solution2: 不用lazy var的方式，先建立好
 - solution3: 雙重檢查上鎖，檢查instance是否已經建立，沒建立才進行同步化
+
+Factory
+--------------------------
+定義一個用於建立物品的介面，讓子類決定實體化哪一個類別。Factory 方法使一個類別的實例化延遲到其子類別，而不需了解具體的實例化細節。
 
 
 
