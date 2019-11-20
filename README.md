@@ -54,6 +54,25 @@ Observer
 優點: 允許發送者在不了解接受者如何處理通知下，以一種統一的方式發送通知。
 缺點: 發送通知的對象和接受通知的對象產生依賴。
 
+State
+--------------------------
+一個物件的行為會因為物件自身狀態不同而表現出不同的反應動作，一般會把與狀態相關的程式寫在物件內以依據狀態改變行為(switch，if else)，但除了使程式碼容易重覆太長不好理解修改，狀態太多也會不易測試。
+
+Solution: 抽離與狀態相關的行為，設計一個State介面，針對每一個狀態新增一個實作介面的Concrete(具體) State物件，與該狀態相關的行為移到相對應的Concrete State物件中。
+
+讓物件擁有一個指向State介面的成員變數，藉由改變State成員變數所指向的Concrete State物件來改變原始物件的行為。
+
+Memento
+--------------------------
+在不破壞封裝性的前提下，捕獲一個物件的內部狀態，並在該物件之外保存這個狀態，這樣以後就可將該物件恢復到原先保存的狀態，提供備份功能的概念。
+
+記錄某一時間點的State，像 Save & Load或上一步下一步。
+
+Originator: 提供建立Memento( Save)或恢復到某個Memento狀態( Restore)的方法，也是主要改動State的類。
+Memento: 負責儲存需要儲存的State的類( Init Data)，就是記錄某一時間點的State。
+Caretaker: 負責保存備忘錄的類別( [Memento]())，需要新增或回調State時，由此類來控制Originator類。
+
+
 ### Creational
 物件實體化
 
@@ -113,5 +132,12 @@ When  to use?
  存取權利需要控制時
  存取時需要提供其他的功能時
  ex: 代購
+ 
+ Facade
+ --------------------------
+ The Facade pattern is used to define a simplified interface to a more complex subsystem.
+ 
+ 為子系統中的一組介面提供一個一致的介面，此模式定義了一個高階介面，這個介面使得這一個子系統更加容易使用。
+ 客戶端只要統一從Facade這個介面就可以不用管背後的邏輯，一種整理性的模式，弈可以把外觀模式當作重構的起點。
 
 
